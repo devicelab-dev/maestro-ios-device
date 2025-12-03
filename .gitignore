@@ -1,0 +1,26 @@
+# Binaries
+maestro-ios-device
+bin/
+dist/
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Claude
+.claude/
+
+# macOS
+.DS_Store
+
+# Test output
+coverage.out
+
+# Temp files
+*.tmp
+*.log
+
+# Plan file (internal)
+PLAN.md
