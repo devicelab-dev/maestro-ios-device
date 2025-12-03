@@ -70,7 +70,7 @@ func (r *Runner) Build(ctx context.Context) error {
 	fmt.Println("🔨 Building (up to 10 min)...")
 
 	if err := cmd.Run(); err != nil {
-		return fmt.Errorf("build failed (see %s)", logPath)
+		return fmt.Errorf("build failed:\n%s\n\nFull log: %s", tailLog(logPath, 20), logPath)
 	}
 
 	if _, err := r.findXctestrun(); err != nil {
@@ -122,7 +122,7 @@ func (r *Runner) Start(ctx context.Context) error {
 	fmt.Println("▶️  Starting runner...")
 
 	if err := r.cmd.Start(); err != nil {
-		return err
+		return fmt.Errorf("failed to start runner: %w", err)
 	}
 
 	if err := r.waitForStartup(logPath); err != nil {
@@ -166,7 +166,7 @@ func (r *Runner) waitForStartup(logPath string) error {
 				return err
 			}
 		case <-timeout:
-			return fmt.Errorf("startup timeout (see %s)", logPath)
+			return fmt.Errorf("startup timeout (90s):\n%s\n\nFull log: %s", tailLog(logPath, 20), logPath)
 		}
 	}
 }
@@ -185,7 +185,19 @@ func checkLog(log, logPath string) error {
 		return fmt.Errorf("certificate not trusted - trust it in Settings > General > VPN & Device Management")
 	}
 	if strings.Contains(log, "Testing failed:") {
-		return fmt.Errorf("runner failed (see %s)", logPath)
+		return fmt.Errorf("runner failed:\n%s\n\nFull log: %s", tailLog(logPath, 20), logPath)
 	}
 	return errNotReady
+}
+
+func tailLog(path string, lines int) string {
+	content, err := os.ReadFile(path)
+	if err != nil {
+		return fmt.Sprintf("(could not read log: %s)", err)
+	}
+	allLines := strings.Split(string(content), "\n")
+	if len(allLines) <= lines {
+		return string(content)
+	}
+	return strings.Join(allLines[len(allLines)-lines:], "\n")
 }

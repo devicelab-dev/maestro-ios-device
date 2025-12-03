@@ -109,7 +109,7 @@ func run() {
 
 	fmt.Println()
 	fmt.Println("✅ Ready! Run:")
-	fmt.Printf("   maestro --driver-host-port %d --device %s test <flow.yaml>\n\n", localPort, *deviceUDID)
+	fmt.Printf("   maestro --driver-host-port %d --device %s --app-file /path/to/app.ipa test flow.yaml\n\n", localPort, *deviceUDID)
 	fmt.Println("Press Ctrl+C to stop.")
 
 	<-sigChan

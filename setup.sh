@@ -26,7 +26,7 @@ echo "╚═══════════════════════�
 echo ""
 
 printf "Continue with installation? [y/N] "
-read -r REPLY
+read -r REPLY </dev/tty
 if [ "$REPLY" != "y" ] && [ "$REPLY" != "Y" ]; then
     echo "Installation cancelled."
     exit 1
