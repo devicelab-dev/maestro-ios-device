@@ -24,6 +24,11 @@ echo "║                                                                ║"
 echo "║  Built by DeviceLab — https://devicelab.dev                   ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
+echo "This will:"
+echo "  1. Download maestro-ios-device binary"
+echo "  2. Download and extract patched JARs to ~/.maestro/lib"
+echo "  3. Download and extract iOS runner to ~/.maestro/maestro-ios-xctest-runner"
+echo ""
 
 printf "Continue with installation? [y/N] "
 read -r REPLY </dev/tty

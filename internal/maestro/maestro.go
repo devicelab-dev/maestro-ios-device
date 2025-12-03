@@ -2,7 +2,6 @@ package maestro
 
 import (
 	"archive/zip"
-	"bufio"
 	"fmt"
 	"io"
 	"net/http"
@@ -69,16 +68,6 @@ func RunSetup() error {
 	}
 
 	fmt.Println()
-	fmt.Println("This will:")
-	fmt.Printf("  1. Download and extract JARs to %s\n", libPath)
-	fmt.Printf("  2. Download and extract iOS runner to %s\n", runnerPath)
-	fmt.Println()
-
-	if !confirm("Proceed?") {
-		return fmt.Errorf("cancelled")
-	}
-	fmt.Println()
-
 	fmt.Println("📥 Downloading JARs...")
 	if err := downloadAndExtract(releaseURL+"/"+jarsZip, libPath); err != nil {
 		return fmt.Errorf("failed to download JARs: %w", err)
@@ -284,10 +273,3 @@ func extractFile(f *zip.File, target string) error {
 	return err
 }
 
-func confirm(prompt string) bool {
-	fmt.Printf("%s (y/n): ", prompt)
-	reader := bufio.NewReader(os.Stdin)
-	resp, _ := reader.ReadString('\n')
-	resp = strings.ToLower(strings.TrimSpace(resp))
-	return resp == "y" || resp == "yes"
-}
