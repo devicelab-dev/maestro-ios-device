@@ -23,7 +23,10 @@ func fatal(format string, args ...any) {
 }
 
 func printBanner() {
-	fmt.Printf("maestro-ios-device %s (Unofficial — devicelab.dev)\n\n", version)
+	fmt.Printf("maestro-ios-device %s\n", version)
+	fmt.Println("  Unofficial stop-gap until Maestro adds real device support")
+	fmt.Println("  Built by DeviceLab — https://devicelab.dev")
+	fmt.Println()
 }
 
 func main() {
@@ -47,7 +50,9 @@ func run() {
 	flag.Parse()
 
 	if *showVersion {
-		fmt.Printf("maestro-ios-device %s (Unofficial — devicelab.dev)\n", version)
+		fmt.Printf("maestro-ios-device %s\n", version)
+		fmt.Println("  Unofficial stop-gap until Maestro adds real device support")
+		fmt.Println("  Built by DeviceLab — https://devicelab.dev")
 		return
 	}
 

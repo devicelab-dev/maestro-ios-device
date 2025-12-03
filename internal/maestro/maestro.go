@@ -68,6 +68,12 @@ func RunSetup() error {
 	}
 
 	fmt.Println()
+	fmt.Println("📦 Backing up existing JARs...")
+	if err := backupJars(libPath); err != nil {
+		return fmt.Errorf("failed to backup JARs: %w", err)
+	}
+	fmt.Println("✅ Backup complete")
+
 	fmt.Println("📥 Downloading JARs...")
 	if err := downloadAndExtract(releaseURL+"/"+jarsZip, libPath); err != nil {
 		return fmt.Errorf("failed to download JARs: %w", err)
@@ -196,6 +202,52 @@ func findLibInScript(content, scriptDir string) string {
 		}
 	}
 	return ""
+}
+
+func backupJars(libPath string) error {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return err
+	}
+	backupDir := filepath.Join(home, ".maestro", "backup")
+	if err := os.MkdirAll(backupDir, 0755); err != nil {
+		return err
+	}
+
+	entries, err := os.ReadDir(libPath)
+	if err != nil {
+		return err
+	}
+
+	for _, entry := range entries {
+		name := entry.Name()
+		if !strings.HasPrefix(name, "maestro") || !strings.HasSuffix(name, ".jar") {
+			continue
+		}
+		src := filepath.Join(libPath, name)
+		dst := filepath.Join(backupDir, name)
+		if err := copyFile(src, dst); err != nil {
+			return fmt.Errorf("failed to backup %s: %w", name, err)
+		}
+	}
+	return nil
+}
+
+func copyFile(src, dst string) error {
+	in, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer in.Close()
+
+	out, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	_, err = io.Copy(out, in)
+	return err
 }
 
 func downloadAndExtract(url, dest string) error {
