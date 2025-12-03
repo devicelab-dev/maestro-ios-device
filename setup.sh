@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # maestro-ios-device setup script
 # Downloads the correct binary and runs setup
@@ -25,9 +25,9 @@ echo "║  Built by DeviceLab — https://devicelab.dev                   ║"
 echo "╚════════════════════════════════════════════════════════════════╝"
 echo ""
 
-read -p "Continue with installation? [y/N] " -n 1 -r
-echo
-if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+printf "Continue with installation? [y/N] "
+read -r REPLY
+if [ "$REPLY" != "y" ] && [ "$REPLY" != "Y" ]; then
     echo "Installation cancelled."
     exit 1
 fi
@@ -37,7 +37,7 @@ echo ""
 # Check OS
 OS=$(uname -s)
 if [ "$OS" != "Darwin" ]; then
-    echo -e "${RED}Error: Only macOS is supported${NC}"
+    printf "${RED}Error: Only macOS is supported${NC}\n"
     exit 1
 fi
 
@@ -51,7 +51,7 @@ case $ARCH in
         ARCH="arm64"
         ;;
     *)
-        echo -e "${RED}Error: Unsupported architecture: $ARCH${NC}"
+        printf "${RED}Error: Unsupported architecture: $ARCH${NC}\n"
         exit 1
         ;;
 esac
@@ -65,7 +65,7 @@ echo ""
 # Find where maestro is installed
 MAESTRO_PATH=$(which maestro 2>/dev/null || true)
 if [ -z "$MAESTRO_PATH" ]; then
-    echo -e "${RED}Error: Maestro not found in PATH. Install Maestro first: https://maestro.mobile.dev${NC}"
+    printf "${RED}Error: Maestro not found in PATH. Install Maestro first: https://maestro.mobile.dev${NC}\n"
     exit 1
 fi
 
@@ -77,7 +77,7 @@ echo ""
 echo "📥 Downloading ${BINARY}..."
 TMP_FILE=$(mktemp)
 if ! curl -fsSL "$DOWNLOAD_URL" -o "$TMP_FILE"; then
-    echo -e "${RED}Error: Failed to download binary${NC}"
+    printf "${RED}Error: Failed to download binary${NC}\n"
     echo "URL: $DOWNLOAD_URL"
     rm -f "$TMP_FILE"
     exit 1
@@ -88,7 +88,7 @@ echo "📦 Installing to $INSTALL_DIR/$BINARY_NAME..."
 mv "$TMP_FILE" "$INSTALL_DIR/$BINARY_NAME"
 chmod +x "$INSTALL_DIR/$BINARY_NAME"
 
-echo -e "${GREEN}✅ Binary installed${NC}"
+printf "${GREEN}✅ Binary installed${NC}\n"
 echo ""
 
 # Run setup command
@@ -97,4 +97,4 @@ echo ""
 "$INSTALL_DIR/$BINARY_NAME" setup
 
 echo ""
-echo -e "${GREEN}✅ Installation complete!${NC}"
+printf "${GREEN}✅ Installation complete!${NC}\n"
