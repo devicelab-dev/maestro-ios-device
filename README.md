@@ -1,12 +1,29 @@
 # maestro-ios-device
 
-> ⚠️ **Unofficial Community Tool**  
-> This is not affiliated with or endorsed by mobile.dev or the Maestro project.  
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)](https://www.apple.com/macos/)
+[![Maestro 2.x](https://img.shields.io/badge/Maestro-2.x-green.svg)](https://maestro.mobile.dev)
+
+**Run Maestro UI tests on real iOS devices** — iPhone and iPad physical device testing with XCTest driver and automatic port forwarding.
+
+> ⚠️ **Unofficial Community Tool**
+> This is not affiliated with or endorsed by mobile.dev or the Maestro project.
 > It's a community-built stop-gap until [PR #2856](https://github.com/mobile-dev-inc/Maestro/pull/2856) is merged.
 
-Run Maestro tests on real iOS devices.
-
 *Built by [DeviceLab](https://devicelab.dev) — stop renting devices you already own.*
+
+## Table of Contents
+
+- [Features](#what-it-does)
+- [Compatibility](#compatibility)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [How It Works](#how-it-works)
+- [Limitations](#limitations)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## What It Does
 
