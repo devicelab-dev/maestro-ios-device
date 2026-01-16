@@ -24,3 +24,6 @@ coverage.out
 
 # Plan file (internal)
 PLAN.md
+
+# Xcode build artifacts
+assets/maestro-ios-xctest-runner/Build/
