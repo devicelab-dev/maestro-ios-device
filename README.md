@@ -10,6 +10,8 @@
 > This is not affiliated with or endorsed by mobile.dev or the Maestro project.
 > It's a community-built stop-gap until [PR #2856](https://github.com/mobile-dev-inc/Maestro/pull/2856) is merged.
 
+> Built from [PR #2856](https://github.com/mobile-dev-inc/Maestro/pull/2856) — for source code, please refer to the [PR #2856](https://github.com/mobile-dev-inc/Maestro/pull/2856).
+
 *Built by [DeviceLab](https://devicelab.dev) — stop renting devices you already own.*
 
 ## Table of Contents
