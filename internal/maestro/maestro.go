@@ -19,7 +19,7 @@ const (
 	runnerDir  = ".maestro/maestro-ios-xctest-runner"
 )
 
-var supportedVersions = []string{"2.0.9", "2.0.10"}
+var supportedVersions = []string{"2.0.9", "2.0.10", "2.1.0"}
 
 func isSupportedVersion(version string) bool {
 	for _, v := range supportedVersions {
@@ -54,7 +54,7 @@ func RunSetup() error {
 	fmt.Printf("Detected Maestro: %s\n", version)
 
 	if !isSupportedVersion(version) {
-		return fmt.Errorf("Unsupported Maestro version: %s\n\nSupported versions: 2.0.9, 2.0.10\n\nPlease upgrade or downgrade Maestro to a supported version.", version)
+		return fmt.Errorf("Unsupported Maestro version: %s\n\nSupported versions: 2.0.9, 2.0.10, 2.1.0\n\nPlease upgrade or downgrade Maestro to a supported version.", version)
 	}
 
 	libPath, err := getLibPath()
