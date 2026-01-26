@@ -37,6 +37,7 @@
 
 | Maestro Version | Status |
 |-----------------|--------|
+| 2.1.0 | ✅ Supported |
 | 2.0.10 | ✅ Supported |
 | 2.0.9 | ✅ Supported |
 | Other 2.x | ❌ Not tested |
