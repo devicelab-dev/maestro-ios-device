@@ -23,7 +23,7 @@ jobs:
 
       - name: Create JARs zip
         run: |
-          cd assets/jars/2.0.10
+          cd assets/jars/2.1.0
           zip -r ../../../maestro-jars.zip .
 
       - name: Create runner zip
