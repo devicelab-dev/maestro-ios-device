@@ -24,7 +24,9 @@ func fatal(format string, args ...any) {
 
 func printBanner() {
 	fmt.Printf("maestro-ios-device %s\n", version)
-	fmt.Println("  Unofficial stop-gap until Maestro adds real device support")
+	fmt.Println("  🚀 3.6x faster, real iOS device support, runs locally or on any Appium cloud,")
+	fmt.Println("  true parallel execution, no paywall. Fixes 78% of Maestro's top issues. Same YAML.")
+	fmt.Println("  https://github.com/devicelab-dev/maestro-runner")
 	fmt.Println("  Built by DeviceLab — https://devicelab.dev")
 	fmt.Println()
 }
@@ -51,7 +53,9 @@ func run() {
 
 	if *showVersion {
 		fmt.Printf("maestro-ios-device %s\n", version)
-		fmt.Println("  Unofficial stop-gap until Maestro adds real device support")
+		fmt.Println("  🚀 3.6x faster, real iOS device support, runs locally or on any Appium cloud,")
+		fmt.Println("  true parallel execution, no paywall. Fixes 78% of Maestro's top issues. Same YAML.")
+		fmt.Println("  https://github.com/devicelab-dev/maestro-runner")
 		fmt.Println("  Built by DeviceLab — https://devicelab.dev")
 		return
 	}
@@ -124,8 +128,10 @@ func run() {
 func printUsage() {
 	fmt.Println(`maestro-ios-device - Run Maestro tests on real iOS devices
 
-⚠️  Unofficial community tool. Not affiliated with mobile.dev or Maestro.
-    Stop-gap until PR #2856 is merged.
+🚀 We built maestro-runner from scratch — 3.6x faster, real iOS device support,
+   runs locally or on any Appium cloud, true parallel execution, no paywall.
+   Fixes 78% of Maestro's top issues. Same YAML.
+   https://github.com/devicelab-dev/maestro-runner
 
 Usage:
   maestro-ios-device --team-id TEAM_ID --device UDID [options]
