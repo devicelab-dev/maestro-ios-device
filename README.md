@@ -4,9 +4,25 @@
 [![macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)](https://www.apple.com/macos/)
 [![Maestro 2.x](https://img.shields.io/badge/Maestro-2.x-green.svg)](https://maestro.mobile.dev)
 
-**Run Maestro UI tests on real iOS devices** — iPhone and iPad physical device testing with XCTest driver and automatic port forwarding.
+> 🚀 **Looking for more than just iOS device support?**
+>
+> **[maestro-runner](https://github.com/devicelab-dev/maestro-runner)** includes everything `maestro-ios-device` does — **3.6x faster, 14x less memory** (single binary, no JVM startup).
+>
+> - ✅ **Real iOS devices** — built-in, no patching needed
+> - ✅ **Android emulators, simulators & real devices**
+> - ✅ **Parallel execution** — dynamic work distribution across devices
+> - ✅ **CI/CD ready** — instant cold starts, GitHub Actions / GitLab / Jenkins
+> - ✅ **Cloud testing** — BrowserStack, Sauce Labs, LambdaTest via Appium
+> - ✅ **Zero migration** — runs your existing Maestro YAML flows as-is
+>
+> ```bash
+> curl -fsSL https://open.devicelab.dev/install/maestro-runner | bash
+> maestro-runner --platform ios test flow.yaml
+> ```
+>
+> 👉 **[Install maestro-runner →](https://github.com/devicelab-dev/maestro-runner)**
 
-🚀 **Update:** We built [maestro-runner](https://github.com/devicelab-dev/maestro-runner) from scratch — 3.6x faster, real iOS device support, runs locally or on any Appium cloud, true parallel execution, no paywall. Fixes 78% of Maestro's top issues. Same YAML.
+**Run Maestro UI tests on real iOS devices** — iPhone and iPad physical device testing with XCTest driver and automatic port forwarding.
 
 > [!NOTE]
 > This repo remains fully supported until Maestro adds official iOS physical device support.
