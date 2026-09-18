@@ -1,4 +1,4 @@
-# maestro-ios-device
+# This is moved to **[maestro-runner](https://github.com/devicelab-dev/maestro-runner)**
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![macOS](https://img.shields.io/badge/platform-macOS-lightgrey.svg)](https://www.apple.com/macos/)
